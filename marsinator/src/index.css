@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.numberstable {
+  border-style: solid;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  padding: 25px;
+  background: #f7f749;
+  font-family: "IBMLight";
+  text-align: center;
+  width: 100%;
+}
