@@ -1,6 +1,6 @@
 import React from "react";
 
-const SolWeather = ({ newInfo }) => {
+const Latestweather = ({ info }) => {
   const months = [
     "Jan",
     "Feb",
@@ -15,24 +15,23 @@ const SolWeather = ({ newInfo }) => {
     "Nov",
     "Dec",
   ];
-
   return (
-    <div className="numbersdiv">
+    <div>
       <table className="numberstable">
         <tbody>
           <tr>
-            <td>Sol: {newInfo.sol}</td>
+            <td>Sol: {info.sol}</td>
           </tr>
           <tr>
-            <td>{`${months[newInfo.terrestrial_date[6] - 1]}. ${
-              newInfo.terrestrial_date[8]
-            }${newInfo.terrestrial_date[9]}`}</td>
+            <td>{`${months[info.terrestrial_date[6] - 1]}. ${
+              info.terrestrial_date[8]
+            }${info.terrestrial_date[9]}`}</td>
           </tr>
           <tr>
-            <td>High: {newInfo.max_temp}°C</td>
+            <td>High: {info.min_temp}°C</td>
           </tr>
           <tr>
-            <td>Low: {newInfo.min_temp}°C</td>
+            <td>Low: {info.max_temp}°C</td>
           </tr>
         </tbody>
       </table>
@@ -40,4 +39,4 @@ const SolWeather = ({ newInfo }) => {
   );
 };
 
-export default SolWeather;
+export default Latestweather;

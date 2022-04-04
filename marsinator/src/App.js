@@ -2,6 +2,7 @@ import axios from "axios";
 import request from "./services/requestline";
 import { useState, useEffect } from "react";
 import SolWeather from "./components/solweather";
+import Latestweather from "./components/latestweather";
 
 const App = () => {
   const [newInfo, setNewInfo] = useState(null);
@@ -20,16 +21,36 @@ const App = () => {
   }, []);
 
   if (newRender === true) {
+    const finaldata = newInfo.sols.filter(
+      (days) => days.max_temp !== "--" && days.min_temp !== "--"
+    );
+    const singleweather = newInfo.sols.slice(-1).pop();
+
+    if (newInfo.sols[0].season === "early autumm") {
+      var season = "early autumn";
+    } else {
+      var season = newInfo.sols[0].season;
+    }
+
     return (
       <div>
-        <h1>{newInfo.sols[0].season}</h1>
-        {newInfo.sols.map((sol) => (
+        <div className="stars"></div>
+        <div className="stars2"></div>
+        <div className="stars3"></div>
+        <h1>{season.toUpperCase()}</h1>
+        <Latestweather info={singleweather} />
+        <p>separacion</p>
+        {finaldata.map((sol) => (
           <SolWeather key={sol.sol} newInfo={sol} />
         ))}
+        <div className="wrapper">
+          <div className="rectangle"></div>
+          <div className="circle"></div>
+        </div>
       </div>
     );
   } else {
-    return <div>loading...</div>;
+    return <p>ok loading.. </p>;
   }
 };
 
