@@ -9,13 +9,11 @@ const App = () => {
   const [newRender, setNewRender] = useState(false);
   useEffect(() => {
     console.log("effect");
-    axios
-      .get(
-        "https://mars.nasa.gov/rss/api/?feed=weather&category=mars2020&feedtype=json"
-      )
-      .then((response) => {
+    request
+      .getAll()
+      .then(response => {
         console.log("promise fulfilled");
-        setNewInfo(response.data);
+        setNewInfo(response);
         setNewRender(true);
       });
   }, []);
