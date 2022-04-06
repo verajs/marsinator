@@ -115,7 +115,7 @@ code {
 }
 
 .latestweatherwrapper {
-  text-align: center;
+  
 }
 
 .solweatherwrapper {
@@ -149,8 +149,8 @@ code {
 .centered1 {
   position: absolute;
   top: 20%;
-  left: 44.5%;
-  transform: translate(-50%, -50%);
+  left: 50%;
+  transform: translate(-65%, -35%);
   text-align: center;
 }
 
