@@ -1,6 +1,6 @@
 import React from "react";
 
-const Latestweather = ({ info }) => {
+const Latestweatherc = ({ info }) => {
   const months = [
     "Jan",
     "Feb",
@@ -16,7 +16,7 @@ const Latestweather = ({ info }) => {
     "Dec",
   ];
   return (
-    <div className="latestweathercard">
+    <div className="latestweathercardC">
       <div className="latestsol">{`${months[info.terrestrial_date[6] - 1]}. ${
         info.terrestrial_date[8]
       }${info.terrestrial_date[9]}`}</div>
@@ -31,4 +31,4 @@ const Latestweather = ({ info }) => {
   );
 };
 
-export default Latestweather;
+export default Latestweatherc;

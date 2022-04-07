@@ -208,7 +208,7 @@ code {
   }
 }
 
-.curiositywrapper {
+.perseverancewrapper {
   height: 100%;
   width: 50%;
   position: fixed;
@@ -220,7 +220,7 @@ code {
 
 
 
-.curiosity {
+.perseverance {
   text-align: center;
   left: 20%;
   color: white;

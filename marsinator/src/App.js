@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import SolWeather from "./components/solweather";
 import Latestweather from "./components/latestweather";
 import requestc from "./services/curiosityrequestline";
+import Latestweatherc from "./components/latestweatherc";
 
 const App = () => {
   const [newInfo, setNewInfo] = useState(null);
   const [newRender, setNewRender] = useState(false);
   const [newCuriosityInfo, setNewCuriosityInfo] = useState([]);
   const [newCuriosityRender, setNewCuriosityRender] = useState(false);
-
 
   // PERSEVERANCE REQUEST
   useEffect(() => {
@@ -23,24 +23,23 @@ const App = () => {
 
   // CURIOSITY REQUEST
   useEffect(() => {
-    console.log('curiosity!!!!');
+    console.log("curiosity!!!!");
     requestc.getAllc().then((response) => {
-      console.log(response)
-      for (var i = 6; i >= 0; i--){
-        newCuriosityInfo.push(response.soles[i])
-        setNewCuriosityInfo(newCuriosityInfo)
+      console.log(response);
+      for (var i = 6; i >= 0; i--) {
+        newCuriosityInfo.push(response.soles[i]);
+        setNewCuriosityInfo(newCuriosityInfo);
       }
       setNewCuriosityRender(true);
-    })
+    });
   }, []);
 
-if (newCuriosityRender === true) {
-  console.log(newCuriosityInfo)
-}
-
+  if (newCuriosityRender === true) {
+    console.log(newCuriosityInfo);
+  }
 
   // IF PERSEVERANCE REQUEST === TRUE
-  if (newRender === true) {
+  if (newRender === true && newCuriosityRender === true) {
     const finaldata = newInfo.sols.filter(
       (days) =>
         days.max_temp !== "--" &&
@@ -48,6 +47,8 @@ if (newCuriosityRender === true) {
         days.sol !== newInfo.sols[6].sol
     );
     const singleweather = newInfo.sols.slice(-1).pop();
+
+    const singleweatherc = newCuriosityInfo[6];
 
     if (newInfo.sols[0].season === "early autumm") {
       var season = "early autumn";
@@ -61,8 +62,10 @@ if (newCuriosityRender === true) {
         <div className="stars2"></div>
         <div className="stars3"></div>
         <div className="vertical"></div>
-        <div className="curiositywrapper">
-          <div className="curiosity">
+
+        {/* PERSEVERANCE */}
+        <div className="perseverancewrapper">
+          <div className="perseverance">
             PERSEVERANCE
             <div className="jezero">(location: Jezero Crater)</div>
           </div>
@@ -77,6 +80,19 @@ if (newCuriosityRender === true) {
               {finaldata.map((sol) => (
                 <SolWeather key={sol.sol} newInfo={sol} />
               ))}
+            </div>
+          </div>
+        </div>
+
+        {/* CURIOSITY */}
+        <div className="curiositywrapper">
+          <div className="curiosity">
+            CURIOSITY
+            <div className="galecrater">(location: Gale Crater)</div>
+            <div className="centered1">
+              <div className="latestweatherwrapperc">
+                <Latestweatherc info={singleweatherc} />
+              </div>
             </div>
           </div>
         </div>

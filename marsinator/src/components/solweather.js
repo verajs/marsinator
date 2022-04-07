@@ -24,9 +24,9 @@ const SolWeather = ({ newInfo }) => {
 
       <div className="date">SOL: {newInfo.sol}</div>
 
-      <div className="mintemplatest">High: <span className="captemp">{newInfo.min_temp}°C</span></div>
+      <div className="mintemplatest">High: <span className="captemp">{newInfo.max_temp}°C</span></div>
 
-      <div className="maxtemp">Low: {newInfo.max_temp}°C</div>
+      <div className="maxtemp">Low: {newInfo.min_temp}°C</div>
     </div>
   );
 };
