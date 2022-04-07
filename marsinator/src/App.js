@@ -4,6 +4,7 @@ import SolWeather from "./components/solweather";
 import Latestweather from "./components/latestweather";
 import requestc from "./services/curiosityrequestline";
 import Latestweatherc from "./components/latestweatherc";
+import SolWeatherc from "./components/solweatherc";
 
 const App = () => {
   const [newInfo, setNewInfo] = useState(null);
@@ -26,7 +27,7 @@ const App = () => {
     console.log("curiosity!!!!");
     requestc.getAllc().then((response) => {
       console.log(response);
-      for (var i = 6; i >= 0; i--) {
+      for (var i = 5; i >= 0; i--) {
         newCuriosityInfo.push(response.soles[i]);
         setNewCuriosityInfo(newCuriosityInfo);
       }
@@ -34,11 +35,8 @@ const App = () => {
     });
   }, []);
 
-  if (newCuriosityRender === true) {
-    console.log(newCuriosityInfo);
-  }
 
-  // IF PERSEVERANCE REQUEST === TRUE
+  // IF PERSEVERANCE AND CURIOSITY REQUESTS FINISHED SUCCESSFULLY 
   if (newRender === true && newCuriosityRender === true) {
     const finaldata = newInfo.sols.filter(
       (days) =>
@@ -46,9 +44,13 @@ const App = () => {
         days.min_temp !== "--" &&
         days.sol !== newInfo.sols[6].sol
     );
+    
     const singleweather = newInfo.sols.slice(-1).pop();
 
-    const singleweatherc = newCuriosityInfo[6];
+    const singleweatherc = newCuriosityInfo[5];
+
+    const solweatherc = newCuriosityInfo.slice(0, -1)
+    
 
     if (newInfo.sols[0].season === "early autumm") {
       var season = "early autumn";
@@ -89,12 +91,23 @@ const App = () => {
           <div className="curiosity">
             CURIOSITY
             <div className="galecrater">(location: Gale Crater)</div>
-            <div className="centered1">
-              <div className="latestweatherwrapperc">
+          </div>
+
+          
+            <div className="centeredc">
+              <div className="latestweatherwrapper">
                 <Latestweatherc info={singleweatherc} />
               </div>
             </div>
+          
+            <div className="centered2">
+            <div className="solweatherwrapper">
+              {solweatherc.map((sol) => (
+                <SolWeatherc key={sol.sol} newInfo={sol} />
+              ))}
+            </div>
           </div>
+          
         </div>
 
         <div className="wrapper">

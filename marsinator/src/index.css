@@ -231,13 +231,13 @@ code {
 }
 
 @media only screen and (max-width: 1153px) {
-  .curiosity {
+  .perseverance {
     font-size: 50px;
   }
 }
 
 @media only screen and (max-width: 834px) {
-  .curiosity {
+  .perseverance {
     font-size: 18px;
   }
 }
@@ -250,7 +250,75 @@ code {
   font-style: italic;
 }
 
+
+
+
+
 /* CSS FOR CURIOSITY */
+
+.curiositywrapper {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.curiosity {
+  text-align: center;
+  right: 20%;
+  color: white;
+  font-family: "Helvetica Neue";
+  font-weight: bold;
+  font-style: italic;
+  font-size: 70px;
+}
+
+.galecrater {
+  position: relative;
+  color: white;
+  text-align: center;
+  font-size: 10px;
+  font-style: italic;
+}
+
+.latestweathercardC {
+  padding: 2em;
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 15px;
+  font-family: "Helvetica Neue";
+}
+
+.centeredc {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-64%, -35%);
+  text-align: center;
+}
+
+@media only screen and (max-width: 1153px) {
+  .curiosity {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .curiosity {
+    font-size: 18px;
+  }
+  .centeredc {
+    transform: translate(-78%, -35%);
+  }
+  .centered1{
+    transform: translate(-80%, -35%);
+  }
+
+}
 
 /* https://www.w3schools.com/howto/howto_css_split_screen.asp /*
 
