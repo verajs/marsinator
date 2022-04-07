@@ -18,6 +18,8 @@ code {
     monospace;
 }
 
+/* CSS FOR PERSEVERANCE */
+
 .wrapper {
   overflow: hidden;
   position: fixed;
@@ -47,6 +49,7 @@ code {
   border-radius: 50%;
   background: #cc3333;
   margin-top: 179px;
+  z-index: 50000;
 }
 
 .latestweathercard {
@@ -66,6 +69,7 @@ code {
   margin-top: 0px;
   opacity: 0.5;
   font-family: "Helvetica Neue";
+  
 }
 
 .latestsol {
@@ -114,13 +118,37 @@ code {
   left: 50%;
 }
 
-.latestweatherwrapper {
-  
-}
 
 .solweatherwrapper {
   margin-top: 250px;
   text-align: center;
+  z-index: 0;
+  overflow: hidden;
+}
+
+@media only screen and (max-height: 728px) {
+  .solweatherwrapper {
+    display: none;
+  }
+  
+}
+
+
+
+@media only screen and (max-height: 700px) and (max-width: 510px){
+  .circle {
+    height: 60vw;
+  }
+  
+}
+
+@media only screen and (max-width: 1250px) and (max-height: 950px) {
+  .solweatherwrapper {
+    display: none;
+  }
+  .latestweathercard{
+    margin-top: 10%;
+  }
 }
 
 @media only screen and (max-width: 688px) {
@@ -130,9 +158,53 @@ code {
   }
 }
 
+@media only screen and (max-width: 1400px) and (max-height: 800px) {
+  .solweatherwrapper {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1017px) and (max-height: 1010px) {
+  .solweatherwrapper {
+    display: none;
+  }
+}
+
+
+.centered1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-65%, -35%);
+  text-align: center;
+}
+
+@media only screen and (max-height: 940px) {
+  .solweatherwrapper {
+    margin-top: 20%;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+  .solweathercard {
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding: 1px;
+  }
+}
+
 @media only screen and (max-height: 948px) and (max-width: 688px) {
   .solweathercard {
     display: none;
+  }
+  .latestsol {
+    font-size: 10px;
+  }
+  .centered1 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-75%, -35%);
+    text-align: center;
   }
 }
 
@@ -146,13 +218,7 @@ code {
   padding-top: 20px;
 }
 
-.centered1 {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-65%, -35%);
-  text-align: center;
-}
+
 
 .curiosity {
   text-align: center;
@@ -172,7 +238,7 @@ code {
 
 @media only screen and (max-width: 834px) {
   .curiosity {
-    font-size: 25px;
+    font-size: 18px;
   }
 }
 
@@ -181,7 +247,14 @@ code {
   color: white;
   text-align: center;
   font-size: 10px;
+  font-style: italic;
 }
+
+/* CSS FOR CURIOSITY */
+
+/* https://www.w3schools.com/howto/howto_css_split_screen.asp /*
+
+
 
 /* 
    Stars animation CSS by: https://codepen.io/mattmarble 
