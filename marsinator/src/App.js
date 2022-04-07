@@ -1,12 +1,15 @@
-import axios from "axios";
 import request from "./services/perseverancerequestline";
 import { useState, useEffect } from "react";
 import SolWeather from "./components/solweather";
 import Latestweather from "./components/latestweather";
+import requestc from "./services/curiosityrequestline";
 
 const App = () => {
   const [newInfo, setNewInfo] = useState(null);
   const [newRender, setNewRender] = useState(false);
+  const [newCuriosityInfo, setNewCuriosityInfo] = useState([]);
+  const [newCuriosityRender, setNewCuriosityRender] = useState(false);
+
 
   // PERSEVERANCE REQUEST
   useEffect(() => {
@@ -17,6 +20,24 @@ const App = () => {
       setNewRender(true);
     });
   }, []);
+
+  // CURIOSITY REQUEST
+  useEffect(() => {
+    console.log('curiosity!!!!');
+    requestc.getAllc().then((response) => {
+      console.log(response)
+      for (var i = 6; i >= 0; i--){
+        newCuriosityInfo.push(response.soles[i])
+        setNewCuriosityInfo(newCuriosityInfo)
+      }
+      setNewCuriosityRender(true);
+    })
+  }, []);
+
+if (newCuriosityRender === true) {
+  console.log(newCuriosityInfo)
+}
+
 
   // IF PERSEVERANCE REQUEST === TRUE
   if (newRender === true) {
