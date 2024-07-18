@@ -165,7 +165,7 @@ const App = () => {
         <div className="wrapper">
           <div className="rectangle"></div>
           <div className="circle">
-            <div className="elmarsinatorr">
+            <div className="elmarsinator">
               {/*
               <svg viewBox="0 0 200 800">
                 <path id="curve" d="M10,55 C15,35 100,38 100,55" />
